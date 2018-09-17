@@ -4,9 +4,8 @@ import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
 import './App.css';
 
-<script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
 // Initialize Firebase
-var config = {
+const config = {
   apiKey: "AIzaSyCgQovkY_pfDRA_C7YVReNC1Fj2IkfA1wU",
   authDomain: "chat-now-72b22.firebaseapp.com",
   databaseURL: "https://chat-now-72b22.firebaseio.com",
