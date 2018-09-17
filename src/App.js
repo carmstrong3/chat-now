@@ -22,7 +22,7 @@ class App extends Component {
 				<header>
 				</header>
 				<main>
-					<Route exact path="/" component={RoomList}/>
+					<RoomList/>
 				</main>
 				<footer>
 				</footer>
