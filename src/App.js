@@ -21,8 +21,8 @@ class App extends Component {
       <div className="App">
 				<header>
 				</header>
-				<main>
-					<RoomList/>
+				<main id='main'>
+					<RoomList roomsRef={()=>this.firebase.database().ref('rooms')}/>
 				</main>
 				<footer>
 				</footer>
