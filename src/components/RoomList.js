@@ -19,7 +19,7 @@ class RoomList extends Component {
 		});
 	}
 
-	createRoom = (event) => {
+	createRoom(event) {
 		event.preventDefault;
 		const newRoomName = event.target[1].value;
 		this.roomsRef.push({
