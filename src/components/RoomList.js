@@ -19,12 +19,12 @@ class RoomList extends Component {
 		});
 	}
 
-	createRoom() {
-		const newRoomName = this.state.newRoom;
-		console.log(newRoomName);
+	createRoom(event) {
+		console.log(this.state.newRoom);
 		this.roomsRef.push({
-  		name: newRoomName
+  		name: this.state.newRoom
 		});
+		event.preventDefault();	
 	}
 	
 	handleRoomChange(event) {
@@ -59,10 +59,10 @@ class RoomList extends Component {
 					</table>
 				</section>
 				<section className="form-container">
-					<form className="newRoomForm" onSubmit={this.createRoom}>
+					<form className="newRoomForm" onSubmit={(e) => this.createRoom(e)}>
 							<label>Enter new form name:</label>
 							<input type="text" id="roomNameInput" name="roomName" className="roomName" onChange={(e) => {this.handleRoomChange(e)}}/>
-							<input type="submit"/>
+							<input type="submit" value="Submit"/>
 					</form>
 				</section>
 			</section>
