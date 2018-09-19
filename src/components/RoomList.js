@@ -20,7 +20,6 @@ class RoomList extends Component {
 	}
 
 	createRoom(event) {
-		console.log(this.state.newRoom);
 		this.roomsRef.push({
   		name: this.state.newRoom
 		});
@@ -29,16 +28,8 @@ class RoomList extends Component {
 	
 	handleRoomChange(event) {
 		const target = event.target.value;
-		console.log("target is: " + target);
-		console.log("event target is: " + event.target.value);
 		this.setState({ newRoom: target});
-		console.log("newRoom is: " + this.state.newRoom);
-	}
-
-	logName(event) {
-		event.preventDefault();
-		console.log(event.target[0].value);
-	}
+	}	
 
 	render(){
 		return(
