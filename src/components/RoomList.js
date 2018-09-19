@@ -19,7 +19,8 @@ class RoomList extends Component {
 		});
 	}
 
-	createRoom() {
+	createRoom(event) {
+		const newRoomName = event.target[0].value;
 		this.roomsRef.push({
   		name: newRoomName
 		});
@@ -49,7 +50,7 @@ class RoomList extends Component {
 					</table>
 				</section>
 				<section className="form-container">
-					<form className="newRoomForm" onSubmit={this.createRoom}>
+					<form className="newRoomForm" onsubmit={(event) => this.createRoom}>
 							<label for="roomNameInput">Enter new form name:</label>
 							<input type="text" id="roomNameInput" name="roomName" className="roomName"/>
 							<input type="submit"/>
