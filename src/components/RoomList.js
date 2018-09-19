@@ -28,8 +28,9 @@ class RoomList extends Component {
 	
 	handleRoomChange(event) {
 		const target = event.target.value;
-		this.setState({ newRoom: `${target}`});
-		console.log(this.newRoom);
+		console.log("target is: " + target);
+		this.setState({ newRoom: target});
+		console.log("newRoom is: " + this.newRoom);
 	}
 
 	logName(event) {
