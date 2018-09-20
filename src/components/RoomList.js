@@ -18,20 +18,21 @@ class RoomList extends Component {
 			this.setState({ rooms: this.state.rooms.concat(room) });
 		});
 	}
-
-	createRoom(event) {
-		this.roomsRef.push({
-  		name: this.state.newRoom
-		});
-		event.preventDefault();	
-	}
 	
 	handleRoomChange(event) {
 		const target = event.target.value;
 		this.setState({ newRoom: target});
 	}	
+	
+	createRoom(event) {
+		event.preventDefault();
+		this.roomsRef.push({
+  		name: this.state.newRoom
+		});
+		this.setState({ newRoom: ''});	
+	}
 
-	render(){
+	render() {
 		return(
 			<section>
 				<section>
@@ -52,8 +53,8 @@ class RoomList extends Component {
 				<section className="form-container">
 					<form className="newRoomForm" onSubmit={(e) => this.createRoom(e)}>
 							<label>Enter new form name:</label>
-							<input type="text" id="roomNameInput" name="roomName" className="roomName" onChange={(e) => {this.handleRoomChange(e)}}/>
-							<input type="submit" value="Submit"/>
+							<input type="text" value={this.state.newRoom} onChange={(e) => {this.handleRoomChange(e)}}/>
+							<input type="submit"/>
 					</form>
 				</section>
 			</section>
