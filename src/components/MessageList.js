@@ -10,14 +10,13 @@ class MessageList extends Component {
 			messages: [],
 			newMessage: {username: '', content: '', roomId: '', sentAt: ''},
 		};
-		this.messagesRef = this.props.firebase.database().ref('Messages');
+		this.messagesRef = this.props.firebase.database().ref('messages');
 	}
 
 	componentDidMount() {
 		this.messagesRef.on('child_added', snapshot => {
       const message = snapshot.val();
-      message.key = snapshot.key;
-			messages.sentAt = this.messagesRef.push({startedAt: firebase.database.ServerValue.TIMESTAMP}) 
+      message.key = snapshot.key; 
 			this.setState({ messages: this.state.messages.concat(message) });
     });
   }
@@ -28,8 +27,8 @@ class MessageList extends Component {
 			<section>
 				<table>
             <tbody>
-              {this.state.messages.filter(message => message.roomId === this.props.activeRoom).map((message) => 
-                <tr key={message.roomId}>
+              {this.state.messages.map((message, index) => 
+                <tr key={index}>
                   <td>{message.username}</td>
 									<td>{message.content}</td>
 									<td>{message.sentAt}</td>

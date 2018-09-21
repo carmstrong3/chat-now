@@ -7,13 +7,14 @@ import './App.css';
 
 // Initialize Firebase
 const config = {
-  apiKey: "AIzaSyCgQovkY_pfDRA_C7YVReNC1Fj2IkfA1wU",
-  authDomain: "chat-now-72b22.firebaseapp.com",
-  databaseURL: "https://chat-now-72b22.firebaseio.com",
-  projectId: "chat-now-72b22",
-  storageBucket: "chat-now-72b22.appspot.com",
-  messagingSenderId: "1002503639211"
+  apiKey: "AIzaSyCwxFf5o7ylV69CBUWQ3YK_l29_NVN42M4",
+  authDomain: "chat-now-58651.firebaseapp.com",
+  databaseURL: "https://chat-now-58651.firebaseio.com",
+  projectId: "chat-now-58651",
+  storageBucket: "chat-now-58651.appspot.com",
+  messagingSenderId: "173593084326",
 };
+
 firebase.initializeApp(config);
 
 class App extends Component {
