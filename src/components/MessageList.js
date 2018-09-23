@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import * as firebase from 'firebase';
+
 
 
 class MessageList extends Component {
@@ -16,11 +16,7 @@ class MessageList extends Component {
 	componentDidMount() {
 		this.messagesRef.on('child_added', snapshot => {
       const message = snapshot.val();
-      message.key = snapshot.key;
-			message.username = snapshot.child("username").val();
-			message.content = snapshot.child("content").val();
-			message.sentAt = snapshot.child("sentAt").val();
-			message.roomId = snapshot.child("roomId").val(); 
+      message.key = snapshot.key;		
 			this.setState({ messages: this.state.messages.concat(message) });
     });
   }
@@ -31,7 +27,7 @@ class MessageList extends Component {
 			<section>
 				<table>
             <tbody>
-              {this.state.messages.map((message, index) => 
+              {this.state.messages.filter(message => message.roomId == this.props.activeRoom).map((message, index) => 
                 <tr key={index}>
                   <td>{message.username}</td>
 									<td>{message.content}</td>

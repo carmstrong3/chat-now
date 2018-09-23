@@ -33,6 +33,7 @@ class RoomList extends Component {
 	}	
 
 	handleRoomClick(room) {
+		const activeRoom = this.props.activeRooms;
 		this.setState({activeRoom: room});
 		console.log(this.state.activeRoom);
 	}	
