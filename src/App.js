@@ -18,30 +18,30 @@ const config = {
 firebase.initializeApp(config);
 
 class App extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			activeRoom: {},
-		}
-	}
-
-	setActiveRoom(room) {
-    console.log("DEBUG - room = " + room.key);
-    this.setState({activeRoom: room});
-    console.log(this.props.activeRoom.key);
+  constructor(props) {
+    super(props);
+      this.state = {
+      activeRoom: {},
+    }
   }
 
-render() {
+  setActiveRoom = (room) => {
+    console.log("DEBUG - room = " + room.key);
+    this.setState({activeRoom: room});
+    console.log(this.state.activeRoom.key);
+  }
+
+  render() {
     return (
       <div className="App">
-				<header>
-				</header>
-				<main id='main'>
-					<RoomList firebase={firebase} activeRoom={this.state.activeRoom} setActiveRoom={this.setActiveRoom}/>
-					<MessageList firebase={firebase} activeRoom={this.state.activeRoom}/>
-				</main>
-				<footer>
-				</footer>
+        <header>
+        </header>
+        <main id='main'>
+          <RoomList firebase={firebase} activeRoom={this.state.activeRoom} setActiveRoom={this.setActiveRoom}/>
+          <MessageList firebase={firebase} activeRoom={this.state.activeRoom}/>
+        </main>
+        <footer>
+        </footer>
       </div>
     );
   }
