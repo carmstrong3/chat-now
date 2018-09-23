@@ -21,17 +21,24 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			activeRoom: '',
+			activeRoom: {},
 		}
 	}
+
+  handleRoomClick(room) {
+    this.setState({activeRoom: room});
+    console.log(this.state.activeRoom);
+  }
+
+
   render() {
     return (
       <div className="App">
 				<header>
 				</header>
 				<main id='main'>
-					<RoomList firebase={firebase}/>
-					<MessageList firebase={firebase}/>
+					<RoomList firebase={firebase} activeRoom={this.state.activeRoom} handleRoomClick={this.handleRoomClick}/>
+					<MessageList firebase={firebase} activeRoom={this.state.activeRoom}/>
 				</main>
 				<footer>
 				</footer>

@@ -1,7 +1,4 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-
-
 
 class MessageList extends Component {
 	constructor(props) {
@@ -27,12 +24,13 @@ class MessageList extends Component {
 			<section>
 				<table>
             <tbody>
-              {this.state.messages.filter(message => message.roomId == this.props.activeRoom).map((message, index) => 
-                <tr key={index}>
-                  <td>{message.username}</td>
-									<td>{message.content}</td>
-									<td>{message.sentAt}</td>
-                </tr>
+              {this.state.messages.filter(message =>
+								message.roomId === this.props.activeRoom.key).map((message, index) => 
+                	<tr key={index}>
+                  	<td>{message.username}</td>
+										<td>{message.content}</td>
+										<td>{message.sentAt}</td>
+                	</tr>
                 )
               }
             </tbody>
