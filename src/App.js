@@ -31,7 +31,7 @@ class App extends Component {
 				<header>
 				</header>
 				<main id='main'>
-					<RoomList firebase={firebase} activeRoom={this.state.activeRoom} handleRoomClick={this.handleRoomClick}/>
+					<RoomList firebase={firebase} activeRoom={this.state.activeRoom}/>
 					<MessageList firebase={firebase} activeRoom={this.state.activeRoom}/>
 				</main>
 				<footer>
