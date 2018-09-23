@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 
 class RoomList extends Component {
 	constructor(props) {
@@ -18,10 +17,21 @@ class RoomList extends Component {
 			this.setState({ rooms: this.state.rooms.concat(room) });
 		});
 	}
+<<<<<<< HEAD
+=======
+
+	createRoom(event) {
+		this.roomsRef.push({
+  	name: this.state.newRoom
+		});
+		event.preventDefault();	
+	}
+>>>>>>> 2.4.4-cp
 	
 	handleRoomChange(event) {
 		const target = event.target.value;
 		this.setState({ newRoom: target});
+<<<<<<< HEAD
 	}	
 	
 	createRoom(event) {
@@ -31,6 +41,9 @@ class RoomList extends Component {
 		});
 		this.setState({ newRoom: ''});	
 	}
+=======
+	}		
+>>>>>>> 2.4.4-cp
 
 	render() {
 		return(
@@ -42,7 +55,7 @@ class RoomList extends Component {
 						</colgroup>
 						<tbody>
 							{this.state.rooms.map((room, index) => 
-								<tr key={index}>
+								<tr key={index} onClick={() => this.props.setActiveRoom(room)}>
 									<td>{room.name}</td>
 								</tr>
 								)
