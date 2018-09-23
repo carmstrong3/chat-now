@@ -26,9 +26,7 @@ class App extends Component {
   }
 
   setActiveRoom = (room) => {
-    console.log("DEBUG - room = " + room.key);
     this.setState({activeRoom: room});
-    console.log(this.state.activeRoom.key);
   }
 
   render() {
