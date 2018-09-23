@@ -25,13 +25,7 @@ class App extends Component {
 		}
 	}
 
-  handleRoomClick(room) {
-    this.setState({activeRoom: room});
-    console.log(this.state.activeRoom);
-  }
-
-
-  render() {
+	render() {
     return (
       <div className="App">
 				<header>
