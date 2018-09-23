@@ -25,7 +25,7 @@ class App extends Component {
 		}
 	}
 
-	handleRoomClick(room) {
+	setActiveRoom(room) {
     console.log("DEBUG - room = " + room.key);
     this.setState({activeRoom: room});
     console.log(this.props.activeRoom.key);
@@ -37,7 +37,7 @@ render() {
 				<header>
 				</header>
 				<main id='main'>
-					<RoomList firebase={firebase} activeRoom={this.state.activeRoom} handleRoomClick={this.handleRoomClick}/>
+					<RoomList firebase={firebase} activeRoom={this.state.activeRoom} setActiveRoom={this.setActiveRoom}/>
 					<MessageList firebase={firebase} activeRoom={this.state.activeRoom}/>
 				</main>
 				<footer>

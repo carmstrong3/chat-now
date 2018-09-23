@@ -40,7 +40,7 @@ class RoomList extends Component {
 						</colgroup>
 						<tbody>
 							{this.state.rooms.map((room, index) => 
-								<tr key={index} onClick={() => this.props.handleRoomClick(room)}>
+								<tr key={index} onClick={() => this.props.setActiveRoom(room)}>
 									<td>{room.name}</td>
 								</tr>
 								)
