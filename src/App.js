@@ -3,6 +3,7 @@ import { Route, Link } from 'react-router-dom';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
 import MessageList from './components/MessageList';
+import User from './components/User';
 import './App.css';
 
 // Initialize Firebase
@@ -22,11 +23,18 @@ class App extends Component {
     super(props);
       this.state = {
       activeRoom: {},
+      currentUser: {},
     }
   }
 
   setActiveRoom = (room) => {
     this.setState({activeRoom: room});
+  }
+
+  setUser = (user) => {
+    console.log("DEBUG-user: " + user);
+    this.setState({currentUser: user});
+    console.log("DEBUG-currentUser: " + this.state.currentUser)
   }
 
   render() {
@@ -37,6 +45,7 @@ class App extends Component {
         <main id='main'>
           <RoomList firebase={firebase} activeRoom={this.state.activeRoom} setActiveRoom={this.setActiveRoom}/>
           <MessageList firebase={firebase} activeRoom={this.state.activeRoom}/>
+					<User firebase={firebase} setUser={this.setUser} currentUser={this.state.currentUser}/>
         </main>
         <footer>
         </footer>
