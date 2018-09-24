@@ -32,9 +32,7 @@ class App extends Component {
   }
 
   setUser = (user) => {
-    console.log("DEBUG-user: " + user);
     this.setState({currentUser: user});
-    console.log("DEBUG-currentUser: " + this.state.currentUser)
   }
 
   render() {
@@ -44,7 +42,7 @@ class App extends Component {
         </header>
         <main id='main'>
           <RoomList firebase={firebase} activeRoom={this.state.activeRoom} setActiveRoom={this.setActiveRoom}/>
-          <MessageList firebase={firebase} activeRoom={this.state.activeRoom}/>
+          <MessageList firebase={firebase} activeRoom={this.state.activeRoom} currentUser={this.state.currentUser}/>
 					<User firebase={firebase} setUser={this.setUser} currentUser={this.state.currentUser}/>
         </main>
         <footer>
