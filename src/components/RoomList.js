@@ -16,6 +16,17 @@ class RoomList extends Component {
       room.key = snapshot.key;
       this.setState({ rooms: this.state.rooms.concat(room) });
     });
+    this.roomsRef.on('child_removed', snapshot => {
+      const room = snapshot.val();
+      room.key = snapshot.key;
+      const index = this.state.rooms.indexOf(room.key)
+      console.log("DEBUG-rooms: " + this.state.rooms);
+      if (index > -1) {
+        this.setState({rooms: this.state.rooms.splice(index, 1)});
+      };
+      this.props.resetActiveRoom();
+      console.log("DEBUG-active room: " + this.props.activeRoom);
+    });
   }
 
   createRoom(event) {
@@ -30,6 +41,13 @@ class RoomList extends Component {
     this.setState({ newRoom: target});
   }	
 
+  deleteRoom = (activeRoom) => {
+    const key = activeRoom.key;
+    console.log(key);
+    this.roomsRef.child(key).remove();
+  }
+    
+
   render() {
     return(
       <section>
@@ -42,6 +60,7 @@ class RoomList extends Component {
               {this.state.rooms.map((room, index) => 
                 <tr key={index} onClick={() => this.props.setActiveRoom(room)}>
                   <td>{room.name}</td>
+					        <td></td>
                 </tr>
                 )
               }
@@ -54,6 +73,9 @@ class RoomList extends Component {
               <input type="text" value={this.state.newRoom} onChange={(e) => {this.handleRoomChange(e)}}/>
               <input type="submit"/>
           </form>
+        </section>
+        <section>
+          <button onClick={() => {this.deleteRoom(this.props.activeRoom)}}>Delete Room</button>
         </section>
       </section>
     )

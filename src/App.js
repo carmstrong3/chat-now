@@ -35,13 +35,17 @@ class App extends Component {
     this.setState({currentUser: user});
   }
 
+  resetActiveRoom = () => {
+    this.setState({activeRoom: {}});
+  }
+    
   render() {
     return (
       <div className="App">
         <header>
         </header>
         <main id='main'>
-          <RoomList firebase={firebase} activeRoom={this.state.activeRoom} setActiveRoom={this.setActiveRoom}/>
+          <RoomList firebase={firebase} activeRoom={this.state.activeRoom} setActiveRoom={this.setActiveRoom} resetActiveRoom={this.resetActiveRoom}/>
           <MessageList firebase={firebase} activeRoom={this.state.activeRoom} currentUser={this.state.currentUser}/>
 					<User firebase={firebase} setUser={this.setUser} currentUser={this.state.currentUser}/>
         </main>
